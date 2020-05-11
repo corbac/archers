@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform int activation_id = 0;
+
+void fragment(){
+//  COLOR = vec4(0.4, 0.6, 0.9, 1.0);
+	vec4 color = texture(TEXTURE, UV);
+	if (activation_id == 0){ // NOT ACTIVABLE
+		COLOR = color * 0.8;
+	}else if (activation_id == 1){ // ACTIVABLE
+		COLOR = color; 
+	}else{ // ACTIVATED
+		COLOR = color * 1.5; 
+	}
+	
+	
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/activation_id = 0
