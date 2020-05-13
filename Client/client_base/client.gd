@@ -183,6 +183,15 @@ func _on_data(id):
 #	_label.text = "Remote call for write this message"
 #	pass
 
+func take_damage(damage):
+	current_life -= damage
+	if current_life <= 0:
+		dead()
+
+func dead():
+#	self.queue_free()
+	pass
+	
 func take_experience(e):
 	experience -= e
 	$Sprite/Camera2D/UI/Exp.text = str(experience)

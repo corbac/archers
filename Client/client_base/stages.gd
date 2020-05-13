@@ -18,8 +18,8 @@ func _ready():
 	map.draw_map(t)
 	add_child(t)
 	
-#	print(map.find_starter_pos()*32)
-#	get_parent().get_node("Sprite").position = map.find_starter_pos()*32
+	print(map.find_starter_pos()*32)
+	get_parent().get_node("Sprite").position = map.find_starter_pos()*32
 
 #	get_parent().get_node("Camera2D").position = map.find_starter_pos()*32
 #	print(map.find_starter_pos())
