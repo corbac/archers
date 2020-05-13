@@ -41,29 +41,57 @@ func _ready():
 			self.add_child(stat_j)
 	
 	screen_size = get_viewport().get_visible_rect().size
+	rect_position = (screen_size - rect_size ) /2
 	
 #	rect_position = (screen_size-rect_size)/2
 	
 	pass
 	
 func _mouse_over_stats(stat):
-	stat.get_child(0).visible = true
+	var children = get_parent().get_children()
+	for c in range(4, len(children)):
+		children[c].queue_free()
+		
+	var label = Label.new()
+	var p = get_local_mouse_position()
+	label.name = "StatLabel"
+	label.rect_position= p + Vector2(margin_left, margin_top)
+#	label
+#	var c = CanvasLayer.new()
+#	c.set_layer(5)
+#	c.
+#	c.add_child(label)
+	get_parent().add_child(label)
+	label.text = "TEST"+ stat.STATS_TYPE.keys()[stat.stat_type]
+#	label.visible = true
+
+#	stat.get_child(0).visible = true
 	pass
 
 func _mouse_exited_stats(stat):
-	stat.get_child(0).visible = false
-	pass
+#	stat.get_child(0).visible = false
+
+	var children = get_parent().get_children()
+	for c in range(4, len(children)):
+		children[c].queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if visible:
-		var mouse_pos = get_global_mouse_position()
-		var p = mouse_pos - (screen_size /2)
+		var mouse_pos = get_local_mouse_position()
+		
+		var p = mouse_pos - (rect_position)
+		
+#		rect_position = ((screen_size - rect_size ) /2) - tr
+		
+		
+		
+		
 #		print("-----------------------------------")
 #		print("x:"+ str(p.x) + " y:" + str(p.y))
-	
-		margin_top = -p.y/5
-		margin_left= -p.x/6
+		
+		margin_top = rect_size.y/3 -(p.y/5)
+		margin_left= rect_size.x/2 -(p.x/6)
 
 	pass
 

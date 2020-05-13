@@ -8,9 +8,32 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "TextureButton",
+"class": "GameStats",
+"language": "GDScript",
+"path": "res://common/game_stats/game_stats.gd"
+}, {
+"base": "Node",
+"class": "MapGenerator",
+"language": "GDScript",
+"path": "res://client_base/map_gen.gd"
+}, {
+"base": "Node2D",
+"class": "PlayerClass",
+"language": "GDScript",
+"path": "res://player_class.gd"
+}, {
+"base": "PlayerClass",
+"class": "ProtectorClass",
+"language": "GDScript",
+"path": "res://protector_class.gd"
+} ]
 _global_script_class_icons={
-
+"GameStats": "",
+"MapGenerator": "",
+"PlayerClass": "",
+"ProtectorClass": ""
 }
 
 [application]

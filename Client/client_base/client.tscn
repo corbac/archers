@@ -64,7 +64,7 @@ __meta__ = {
 [node name="Stage" type="Label" parent="Sprite/Camera2D/UI"]
 margin_right = 40.0
 margin_bottom = 14.0
-text = "1"
+text = "Stage : 59"
 __meta__ = {
 "_edit_use_anchors_": false
 }

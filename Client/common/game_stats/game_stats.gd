@@ -64,10 +64,17 @@ func _ready():
 #	self.connect("pressed" , get_parent(), "_mouse_selected_stats", [self])
 	self.connect("pressed" , self, "_mouse_selected_stats")
 	
-	var label = Label.new()
-	add_child(label)
-	label.text = STATS_TYPE.keys()[stat_type]
-	label.visible = false
+#	var label = Label.new()
+#	var p = get_global_mouse_position()
+#	label.rect_position= p
+##	label
+##	var c = CanvasLayer.new()
+##	c.set_layer(5)
+##	c.
+##	c.add_child(label)
+#	get_parent().get_parent().add_child(label)
+#	label.text = STATS_TYPE.keys()[stat_type]
+#	label.visible = false
 	
 	if is_activable:
 		self.material.set_shader_param("activation_id", 1)
