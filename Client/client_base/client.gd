@@ -185,8 +185,11 @@ func _on_data(id):
 
 func take_damage(damage):
 	current_life -= damage
+	
 	if current_life <= 0:
 		dead()
+		
+	$Sprite/Camera2D/UI/HP.text = str(current_life)
 
 func dead():
 #	self.queue_free()

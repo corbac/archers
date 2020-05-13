@@ -7,6 +7,8 @@ extends Node2D
 
 #signal map_generated
 
+var Enemy = preload("res://enemies/enemy.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	$TileMap.set_cell(1,5, 1, 0)
@@ -20,6 +22,13 @@ func _ready():
 	
 	print(map.find_starter_pos()*32)
 	get_parent().get_node("Sprite").position = map.find_starter_pos()*32
+	
+	var ai = get_node("../IA")
+
+	for i in range(100):
+		var e = Enemy.instance()
+		e.position = map.find_starter_pos()*32
+		ai.add_child(e)
 
 #	get_parent().get_node("Camera2D").position = map.find_starter_pos()*32
 #	print(map.find_starter_pos())

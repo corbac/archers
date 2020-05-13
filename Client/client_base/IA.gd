@@ -21,7 +21,7 @@ func _ready():
 	add_child(decision_timer)
 	decision_timer.start(decision_cooldown)
 	pass # Replace with function body.
-
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -31,4 +31,6 @@ func _ready_to_attack(enemy):
 	enemy.order = 2
 
 func _decision_cooldown_over():
-	get_node("Enemy").ai_move_to_player(_player)
+	for e in get_children():
+		if e != decision_timer:
+			e.ai_move_to_player(_player)

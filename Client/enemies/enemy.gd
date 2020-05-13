@@ -10,7 +10,7 @@ var exp_given = 5
 
 var speed = 8000
 
-var can_shoot : bool
+var can_shoot : bool = false
 
 var move = Vector2(0,0)
 
@@ -26,7 +26,7 @@ var attack_cooldown = 2
 
 enum AI_STAT {
 	IDLE,
-	MOVE,A
+	MOVE,
 	ATTACK
 } 
 
@@ -57,7 +57,8 @@ func _process(delta):
 	#check distance to player
 	if _target:
 		var dist_target= position.distance_to(_target.position)
-		if  dist_target <= _range:
+		print (order == AI_STAT.ATTACK)
+		if  order != AI_STAT.ATTACK and dist_target <= _range:
 			emit_signal("ready_to_attack", self)
 		
 	pass
